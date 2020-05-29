@@ -96,6 +96,8 @@ dom.query.holdBtn.addEventListener("click", function () {
         }`
       );
       gamePlaying = false;
+      dom.query.rollBtn.style.display = 'none';
+      dom.query.holdBtn.style.display = 'none';
     } else {
       roundScore = 0;
       updateCurrentScoreUI();
@@ -135,7 +137,9 @@ function initNewGame() {
   roundScore = 0;
   prevDice = 0;
 
-  document.querySelector(".dice").style.display = "none";
+  dom.query.dice.style.display = "none";
+  dom.query.rollBtn.style.display = 'block';
+  dom.query.holdBtn.style.display = 'block';
 
   document.querySelector("#score-0").textContent = "0";
   document.querySelector("#score-1").textContent = "0";
