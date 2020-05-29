@@ -40,7 +40,7 @@ initNewGame();
 dom.query.rollBtn.addEventListener("click", function () {
   if (gamePlaying) {
     dice = Math.random() * 6 + 1 >> 0;
-    dom.query.dice.src = "dice-" + dice + ".png";
+    dom.query.dice.src = "/img/dice-" + dice + ".png";
     dom.query.dice.style.display = "block";
 
     if (dice === 1) {
