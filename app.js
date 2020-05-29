@@ -18,27 +18,26 @@ var gameTime = {
 
 var dom = {
   dice: ".dice",
-  rollDice: ".btn-roll",
+  rollBtn: ".btn-roll",
   holdBtn: ".btn-hold",
   panel_0: ".player-0-panel",
   panel_1: ".player-1-panel",
   settingsBtn: ".btn-rules",
   settingsPanel: ".rules-panel",
+  query: {}
 };
-dom.query = {
-  dice: document.querySelector(dom.dice),
-  rollDice: document.querySelector(dom.rollDice),
-  holdBtn: document.querySelector(dom.holdBtn),
-  panel_0: document.querySelector(dom.panel_0),
-  panel_1: document.querySelector(dom.panel_1),
-  settingsBtn: document.querySelector(dom.settingsBtn),
-  settingsPanel: document.querySelector(dom.settingsPanel),
-};
+
+// Fill the `query` object within a loop
+for (key in dom) {
+  if (key !== 'query') {
+      dom.query[key] = document.querySelector(dom[key])
+  }
+}
 
 // Start the new game
 initNewGame();
 
-dom.query.rollDice.addEventListener("click", function () {
+dom.query.rollBtn.addEventListener("click", function () {
   if (gamePlaying) {
     dice = Math.floor(Math.random() * 6 + 1);
     dom.query.dice.src = "dice-" + dice + ".png";
@@ -83,7 +82,7 @@ dom.query.holdBtn.addEventListener("click", function () {
     scores[currentPlayer] += roundScore;
     updateScoreUI();
 
-    if (scores[currentPlayer] >= 10) {
+    if (scores[currentPlayer] >= 100) {
       document
         .querySelector(".player-" + currentPlayer + "-panel")
         .classList.add("winner");
