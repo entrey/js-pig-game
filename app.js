@@ -39,7 +39,7 @@ initNewGame();
 
 dom.query.rollBtn.addEventListener("click", function () {
   if (gamePlaying) {
-    dice = Math.floor(Math.random() * 6 + 1);
+    dice = Math.random() * 6 + 1 >> 0;
     dom.query.dice.src = "dice-" + dice + ".png";
     dom.query.dice.style.display = "block";
 
